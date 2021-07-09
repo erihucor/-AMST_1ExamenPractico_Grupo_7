@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AMST_Buscador_de_heroes</string>
+    <string name="aplicaciones_moviles_y_servicios_telematicos">Aplicaciones moviles y servicios telematicos</string>
+    <string name="examen_practico">Examen Practico</string>
+    <string name="pabelco_zambrano_y_erick_cordova">Pabelco Zambrano y Erick Cordova</string>
+    <string name="busqueda_por_nombre">Busqueda por nombre</string>
+    <string name="buscar_heroe">Buscar heroe</string>
 </resources>
