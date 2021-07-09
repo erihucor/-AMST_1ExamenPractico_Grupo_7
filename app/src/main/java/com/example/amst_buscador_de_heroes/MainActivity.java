@@ -9,14 +9,11 @@ import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public void toView_SearchResults(JSONArray resultsJSON) throws JSONException {
         //Enviando el response a través de las vistas Main->Search Results
         ArrayList<Map<String,String>> results = new ArrayList<>();
-        Intent searchResultsView = new Intent(getBaseContext(), SearchResults.class);
+        Intent searchResultsView = new Intent(getBaseContext(), HeroeProfile.class);
         for (int i = 0; i < resultsJSON.length(); i++)
         {
             String nameSuperHero = resultsJSON.getJSONObject(i).getString("name");
@@ -60,25 +57,17 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://superheroapi.com/api/"+tokenAPI+"/search/"+superhero;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println(response);
-                        try {
-                            JSONArray results = response.getJSONArray("results");
-                            toView_SearchResults(results);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                (Request.Method.GET, url, null, response -> {
+                    System.out.println(response);
+                    try {
+                        JSONArray results = response.getJSONArray("results");
+                        toView_SearchResults(results);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
+                }, error -> {
+                    // TODO: Handle error
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
-
-                    }
                 });
         mQueue.add(jsonObjectRequest);
     }

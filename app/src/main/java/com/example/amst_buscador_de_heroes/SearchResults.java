@@ -28,15 +28,15 @@ public class SearchResults extends AppCompatActivity {
     }
 
     protected void llenarListView(){
-        ListView list_heroes = (ListView) findViewById(R.id.list_view_heroes);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,this.searchResults);
-        list_heroes.setAdapter(adapter);
-
-        list_heroes.setClickable(true);
-        list_heroes.setOnItemClickListener(
-                (adapterView, view, i, l) -> System.out.println("Click")
-
-        );
+//        ListView list_heroes = (ListView) findViewById(R.id.list_view_heroes);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,this.searchResults);
+//        list_heroes.setAdapter(adapter);
+//
+//        list_heroes.setClickable(true);
+//        list_heroes.setOnItemClickListener(
+//                (adapterView, view, i, l) -> System.out.println("Click")
+//
+//        );
     }
 
 }
