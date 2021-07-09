@@ -22,21 +22,26 @@ public class SearchResults extends AppCompatActivity {
 
         this.searchResults = (ArrayList<Map<String, String>>) searchResultsView.getExtras().get("results");
 
+        ArrayList<String> response_nombres = new ArrayList<>();
+        for(int i = 0; i < response_nombres.size();i++){
+            System.out.println(searchResults.get(i));
+        }
+
         //System.out.println("Resultado: " + searchResults.toString());
-        llenarListView();
+       // llenarListView();
 
     }
 
     protected void llenarListView(){
-//        ListView list_heroes = (ListView) findViewById(R.id.list_view_heroes);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,this.searchResults);
-//        list_heroes.setAdapter(adapter);
-//
-//        list_heroes.setClickable(true);
-//        list_heroes.setOnItemClickListener(
-//                (adapterView, view, i, l) -> System.out.println("Click")
-//
-//        );
+        ListView list_heroes = (ListView) findViewById(R.id.list_view_heroes);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,this.searchResults);
+        //list_heroes.setAdapter(adapter);
+
+        list_heroes.setClickable(true);
+        list_heroes.setOnItemClickListener(
+                (adapterView, view, i, l) -> System.out.println("Click")
+
+        );
     }
 
 }
