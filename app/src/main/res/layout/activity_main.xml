@@ -25,7 +25,8 @@
         <TextView
             android:id="@+id/text_Titulo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.20"
             android:gravity="center"
             android:text="@string/aplicaciones_moviles_y_servicios_telematicos"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
@@ -33,7 +34,8 @@
         <TextView
             android:id="@+id/text_titulo_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
             android:gravity="center"
             android:text="@string/examen_practico"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -41,7 +43,8 @@
         <TextView
             android:id="@+id/text_integrantes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
             android:gravity="center"
             android:text="@string/pabelco_zambrano_y_erick_cordova"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
@@ -49,7 +52,8 @@
         <EditText
             android:id="@+id/editText_input_nombre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
             android:ems="10"
             android:gravity="center"
             android:hint="@string/busqueda_por_nombre"
@@ -58,8 +62,15 @@
         <Button
             android:id="@+id/btn_buscar_heroe"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
             android:text="@string/buscar_heroe" />
+
+        <TextView
+            android:id="@+id/textViewTEMP"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4" />
 
     </LinearLayout>
 
