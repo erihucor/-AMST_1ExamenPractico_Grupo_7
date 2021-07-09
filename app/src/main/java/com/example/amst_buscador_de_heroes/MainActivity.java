@@ -19,6 +19,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,15 +41,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toView_SearchResults(JSONArray resultsJSON) throws JSONException {
-        //Enviando el token a través de las vistas Main->Search Results
-        ArrayList<String> results = new ArrayList<>();
+        //Enviando el response a través de las vistas Main->Search Results
+        ArrayList<Map<String,String>> results = new ArrayList<>();
         Intent searchResultsView = new Intent(getBaseContext(), SearchResults.class);
         for (int i = 0; i < resultsJSON.length(); i++)
         {
             String nameSuperHero = resultsJSON.getJSONObject(i).getString("name");
-            results.add(nameSuperHero);
+            String idSuperHero = resultsJSON.getJSONObject(i).getString("id");
+            Map<String,String> objectResults = new HashMap<>();
+            objectResults.put(idSuperHero,nameSuperHero);
+            results.add(objectResults);
         }
-        searchResultsView.putStringArrayListExtra("results", results);
+        searchResultsView.putExtra("results", results);
         startActivity(searchResultsView);
     }
 
