@@ -47,13 +47,15 @@
             android:ems="10"
             android:gravity="center"
             android:hint="@string/busqueda_por_nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:autofillHints="@string/busqueda_por_nombre" />
 
         <Button
             android:id="@+id/btn_buscar_heroe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
+            android:onClick="goToSearchResults"
             android:text="@string/buscar_heroe" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
