@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,44 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void goToSearchResults(View v){
-        final EditText superhero = (EditText) findViewById(R.id.editText_input_nombre);
-        String strSuperhero = superhero.getText().toString();
-        buscarHeroe(strSuperhero);
+    public void toView_SearchResults(View v) {
+        Intent search_result_activity = new Intent(getBaseContext(), SearchResults.class);
+        String superhero = ((EditText)findViewById(R.id.editText_input_nombre)).getText().toString();
+        search_result_activity.putExtra("superhero", superhero);
+        startActivity(search_result_activity);
     }
 
-    public void toView_SearchResults(JSONArray resultsJSON) throws JSONException {
-        //Enviando el response a través de las vistas Main->Search Results
-        ArrayList<Map<String,String>> results = new ArrayList<>();
-        Intent searchResultsView = new Intent(getBaseContext(), HeroeProfile.class);
-        for (int i = 0; i < resultsJSON.length(); i++)
-        {
-            String nameSuperHero = resultsJSON.getJSONObject(i).getString("name");
-            String idSuperHero = resultsJSON.getJSONObject(i).getString("id");
-            Map<String,String> objectResults = new HashMap<>();
-            objectResults.put(idSuperHero,nameSuperHero);
-            results.add(objectResults);
-        }
-        searchResultsView.putExtra("results", results);
-        startActivity(searchResultsView);
-    }
-
-    public void buscarHeroe(String superhero){
-        String url = "https://superheroapi.com/api/"+tokenAPI+"/search/"+superhero;
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, url, null, response -> {
-                    System.out.println(response);
-                    try {
-                        JSONArray results = response.getJSONArray("results");
-                        toView_SearchResults(results);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }, error -> {
-                    // TODO: Handle error
-
-                });
-        mQueue.add(jsonObjectRequest);
-    }
 }
