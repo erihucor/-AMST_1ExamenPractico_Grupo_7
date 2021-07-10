@@ -23,7 +23,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private RequestQueue mQueue = null;
-    final String tokenAPI = "4159910954087857";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
