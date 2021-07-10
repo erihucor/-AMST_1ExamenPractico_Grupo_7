@@ -6,9 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".HeroeProfile">
 
-    <com.github.mikephil.charting.charts.BarChart
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/barChart"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_tituloHeoreProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Habilidades"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <TextView
+            android:id="@+id/textNombreHeroe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre" />
+
+        <TextView
+            android:id="@+id/text_nombre_real"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre real" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
