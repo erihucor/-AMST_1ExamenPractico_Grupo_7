@@ -46,9 +46,12 @@ public class HeroeProfile extends AppCompatActivity {
         barEntriesArrayList = new ArrayList<>();
         labelName  = new ArrayList<>();
         mQueue = Volley.newRequestQueue(this);
-//        Intent HeroeProfileView = getIntent();
-//        this.idSuperhero = (String) HeroeProfileView.getExtras().get("id");
-//        System.out.println(idSuperhero);
+        Intent HeroeProfileView = getIntent();
+        this.idSuperhero = (String) HeroeProfileView.getExtras().get("id");//confirma :v
+        System.out.println("------------------------------");
+        System.out.println(idSuperhero);
+        System.out.println("------------------------------");
+
         searchHeroProfile("70");
 
         for (int i =0; i < powerstatsArrayList.size();i++){
